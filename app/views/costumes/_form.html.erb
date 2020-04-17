@@ -1,0 +1,32 @@
+<%= form_with(model: costume, local: true) do |form| %>
+  <% if costume.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(costume.errors.count, "error") %> prohibited this costume from being saved:</h2>
+
+      <ul>
+        <% costume.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_field :desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
