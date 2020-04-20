@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Costumes</h1>
+<h1>Cosplays</h1>
 
 <table>
   <thead>
@@ -28,4 +26,5 @@
 
 <br>
 
-<%= link_to 'New Costume', new_costume_path %>
+<%= link_to 'New Cosplay', new_costume_path %>
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) if user_signed_in? %>

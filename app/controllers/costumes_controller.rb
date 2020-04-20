@@ -5,7 +5,7 @@ class CostumesController < ApplicationController
   # GET /costumes
   # GET /costumes.json
   def index
-    @costumes = Costume.all
+    @costumes = Costume.where(:user_id => current_user.id)
   end
 
   # GET /costumes/1
@@ -29,7 +29,7 @@ class CostumesController < ApplicationController
 
     respond_to do |format|
       if @costume.save
-        format.html { redirect_to @costume, notice: 'Costume was successfully created.' }
+        format.html { redirect_to @costume, notice: 'Cosplay was successfully created.' }
         format.json { render :show, status: :created, location: @costume }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CostumesController < ApplicationController
   def update
     respond_to do |format|
       if @costume.update(costume_params)
-        format.html { redirect_to @costume, notice: 'Costume was successfully updated.' }
+        format.html { redirect_to @costume, notice: 'Cosplay was successfully updated.' }
         format.json { render :show, status: :ok, location: @costume }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CostumesController < ApplicationController
   def destroy
     @costume.destroy
     respond_to do |format|
-      format.html { redirect_to costumes_url, notice: 'Costume was successfully destroyed.' }
+      format.html { redirect_to costumes_url, notice: 'Cosplay was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
