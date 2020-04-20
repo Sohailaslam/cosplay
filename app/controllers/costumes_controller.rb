@@ -1,11 +1,12 @@
 class CostumesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_costume, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /costumes
   # GET /costumes.json
   def index
-    @costumes = Costume.where(:user_id => current_user.id)
+    @costumes = Costume.all
   end
 
   # GET /costumes/1
