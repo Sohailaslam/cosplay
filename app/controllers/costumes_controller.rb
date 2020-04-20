@@ -70,6 +70,6 @@ class CostumesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def costume_params
-      params.require(:costume).permit(:name, :desc, :user_id)
+      params.require(:costume).permit(:name, :desc, :user_id, images: [])
     end
 end

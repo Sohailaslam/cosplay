@@ -23,6 +23,8 @@
 
   <%= form.hidden_field :user_id, :value => current_user.id %>
 
+  <%= form.file_field :images, multiple: true %>
+
   <div class="actions">
     <%= form.submit 'Save' %>
   </div>

@@ -13,5 +13,15 @@
   <%= @costume.user.email %>
 </p>
 
+<% if @costume.images.attached? %>
+  <p>
+    <strong>Images:</strong>
+    <br/>
+    <% @costume.images.each do |image| %>
+      <%= image_tag(image) %>
+    <% end %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_costume_path(@costume) %> |
 <%= link_to 'Back', costumes_path %>

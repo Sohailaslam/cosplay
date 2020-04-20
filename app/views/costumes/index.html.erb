@@ -16,6 +16,15 @@
         <td><%= costume.name %></td>
         <td><%= costume.desc %></td>
         <td><%= costume.user_id %></td>
+        <% if costume.images.attached? %>
+          <p>
+            <strong>Images:</strong>
+            <br/>
+            <% costume.images.each do |image| %>
+              <%= image_tag(image) %>
+            <% end %>
+          </p>
+        <% end %>
         <td><%= link_to 'Show', costume %></td>
         <td><%= link_to 'Edit', edit_costume_path(costume) %></td>
         <td><%= link_to 'Destroy', costume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
