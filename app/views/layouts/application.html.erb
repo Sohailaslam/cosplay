@@ -14,10 +14,11 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <%= render 'layouts/header' %>
+
+    <div class="alert notice" role="alert"><%= notice %></div>
+    <div class="alert"><%= alert %></div>
         <div class="container-fluid">
           <div class="container-main">
             <div class="row">
@@ -28,6 +29,6 @@
           </div>
         </div>
         <%= render 'layouts/footer' %>
-
+        <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   </body>
 </html>
