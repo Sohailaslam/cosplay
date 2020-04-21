@@ -109,4 +109,18 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  config.action_mailer.default_url_options = { host: 'https://costumewear.herokuapp.com' }
+
+  # Mailgun SMTP configuration
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :domain  => ENV['MAILGUN_DOMAIN'],
+    :user_name => ENV['MAILGUN_USERNAME'],
+    :password => ENV['MAILGUN_PASSWORD'],
+    :address => 'smtp.mailgun.org',
+    :port      => '587',
+    :authentication => :plain,
+    enable_starttls_auto: true
+  }
 end
