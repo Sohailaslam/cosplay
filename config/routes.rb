@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   }
 
   resources :costumes
+
+  match '/add_images/:id', :to => 'costumes#add_more_images', :via => :get, :as => :add_more_images
 end

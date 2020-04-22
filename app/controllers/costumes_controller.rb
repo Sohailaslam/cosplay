@@ -1,7 +1,7 @@
 class CostumesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_costume, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  before_action :set_costume, only: [:show, :edit, :update, :destroy, :add_more_images]
+  load_and_authorize_resource :except => :add_more_images
 
   # GET /costumes
   # GET /costumes.json
@@ -60,6 +60,17 @@ class CostumesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to costumes_url, notice: 'Cosplay was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # Custom actions
+
+  # GET /add_images/:id
+  # Adding more images to an existing costume
+  def add_more_images
+    respond_to do |f|
+      f.html {}
+      f.js {}
     end
   end
 

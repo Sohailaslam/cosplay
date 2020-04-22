@@ -23,5 +23,6 @@
   </p>
 <% end %>
 
+<%= link_to 'Add more Photos', add_more_images_path(@costume), :remote => true %>
 <%= link_to 'Edit', edit_costume_path(@costume) if can? :update, @costume %> |
 <%= link_to 'Back', costumes_path %>
