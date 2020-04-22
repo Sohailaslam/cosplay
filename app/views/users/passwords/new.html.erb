@@ -6,7 +6,7 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="card mt-5">
-    <div class="card-header h5 bg-primary text-light text-center">
+    <div class="card-header h5 text-center">
       Forgot your password?
     </div>
     <div class="card-body">
@@ -17,7 +17,10 @@
         </div>
         <%= f.submit "Reset my Password", :class => 'btn btn-primary mt-4 btn-block mb-3' %>
         <p class="text-center">OR</p>
-        <%= render "users/shared/links" %>
+        <div class="text-center">
+          <%= render "users/shared/links" %>
+
+        </div>
       </form>
     </div>
   </div>
