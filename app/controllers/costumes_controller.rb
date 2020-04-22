@@ -29,7 +29,7 @@ class CostumesController < ApplicationController
     @costume = Costume.new(costume_params)
 
     respond_to do |format|
-      if @costume.save
+      if @costume.save!
         format.html { redirect_to @costume, notice: 'Cosplay was successfully created.' }
         format.json { render :show, status: :created, location: @costume }
       else
@@ -43,7 +43,7 @@ class CostumesController < ApplicationController
   # PATCH/PUT /costumes/1.json
   def update
     respond_to do |format|
-      if @costume.update(costume_params)
+      if @costume.update!(costume_params)
         format.html { redirect_to @costume, notice: 'Cosplay was successfully updated.' }
         format.json { render :show, status: :ok, location: @costume }
       else
