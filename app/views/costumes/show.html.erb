@@ -16,7 +16,7 @@
 
   <div class="row mt-5">
       <% if @costume.images.attached? %>
-        <% @costume.images.sort.each do |image| %>
+        <% @costume.images.order('created_at DESC').each do |image| %>
         <div class="col-md-4 mt-3">
             <%= image_tag(image, :class => 'img-fluid h-auto' )  %>
             <h6 class="text-center mt-1"><%= image.created_at.strftime('%B %-d, %Y at %I:%M %p') %></h6>
