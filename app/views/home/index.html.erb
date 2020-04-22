@@ -1,10 +1,3 @@
-<p>Welcome to Cosplay App!.</p>
-
-
-<% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  <%= link_to('Navigate to Cosplays', costumes_path) %>
-<% else %>
-  <%= link_to('Login', new_user_session_path) %>
-  <%= link_to('Signup', new_user_registration_path) %>
-<% end %>
+<div class="">
+  <h3>Welcome to Cosplay App!.</h3>
+</div>

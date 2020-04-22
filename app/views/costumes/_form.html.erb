@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-  <form>
     <div class="form-group row my-2">
       <label class="col-sm-2 text-center my-auto">Name:</label>
       <div class="col-sm-10">
@@ -32,8 +31,6 @@
     </div>
     <div class="actions my-5 text-center">
       <%= form.submit 'Save', :class => 'btn btn-primary' %>
+      <%= link_to 'Back', costumes_path, class: 'btn btn-primary text-light' %>
     </div>
-
-  </form>
-
 <% end %>

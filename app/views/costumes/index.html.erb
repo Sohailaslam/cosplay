@@ -11,11 +11,13 @@
   <div class="row mt-4">
     <% @costumes.each do |costume| %>
     <div class="col-md-4 my-2">
+      <a href="<%= costume_path(costume) %>" class="">
         <div class="card shadow my-3" style=" height: 100px">
           <div class="card-body zoom">
-            <h4 class="card-title text-center my-auto"><%= link_to(costume.name, costume, :class => '') %></h4>
+            <h4 class="card-title text-center my-auto"><%= costume.name %></h4>
           </div>
         </div>
+      </a>
     </div>
     <% end %>
   </div>
