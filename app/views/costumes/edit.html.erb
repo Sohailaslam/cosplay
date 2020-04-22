@@ -1,6 +1,18 @@
-<h1>Editing Cosplay</h1>
-
-<%= render 'form', costume: @costume %>
-
-<%= link_to 'Show', @costume %> |
-<%= link_to 'Back', costumes_path %>
+<div class="container bg-white border my-5">
+  <div class="row mt-4">
+    <div class=" col-12">
+      <h3 class="text-center text-dark text-uppercase"><strong>Edit Cosplay</strong></h3>
+    </div>
+  </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <%= render 'form', costume: @costume %>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-md-6 mx-auto text-center ">
+        <%= link_to 'Show', @costume , class: 'btn btn-primary btn-sm text-light' %> |
+        <%= link_to 'Back', costumes_path, class: 'btn btn-info btn-sm text-light' %>
+      </div>
+    </div>
+</div>
