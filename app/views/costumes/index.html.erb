@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-white border my-5">
   <div class="row mt-4">
     <div class="col-10">
       <h4 class="text-center text-dark">Cosplays</h4>
@@ -8,10 +8,25 @@
     </div>
   </div>
 
+  <div class="row mt-4">
+    <% @costumes.each do |costume| %>
+    <div class="col-md-4 my-2">
+      <a href="" class="">
+        <div class="card shadow my-3" style=" height: 100px">
+          <div class="card-body zoom">
+            <h4 class="card-title text-center my-auto"><%= costume.name %></h4>
+          </div>
+        </div>
+      </a>
+    </div>
+    <% end %>
+  </div>
+
+
 </div>
 
 
-
+<!--
 <table>
   <thead>
     <tr>
@@ -23,31 +38,19 @@
   </thead>
 
   <tbody>
-    <div class="row mt-4">
+
       <% @costumes.each do |costume| %>
-      <div class="col-md-4">
-        <a href="" class="">
-          <div class="card " style=" height: 100px">
-            <div class="card-body zoom">
-              <h4 class="card-title text-center my-auto"><%= costume.name %></h4>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-
       <tr>
-        <td><%= costume.name %></td>
-        <td><%= costume.desc %></td>
-        <td><%= costume.user.email %></td>
+        <td><%#= costume.name %></td>
+        <td><%#= costume.desc %></td>
+        <td><%#= costume.user.email %></td>
 
-        <td><%= link_to 'Show', costume %></td>
+        <td><%#= link_to 'Show', costume %></td>
         <% if can? :modify, costume %>
-          <td><%= link_to 'Edit', edit_costume_path(costume) %></td>
-          <td><%= link_to 'Destroy', costume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%#= link_to 'Edit', edit_costume_path(costume) %></td>
+          <td><%#= link_to 'Destroy', costume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->

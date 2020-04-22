@@ -10,22 +10,30 @@
       </ul>
     </div>
   <% end %>
+  <form>
+    <div class="form-group row my-2">
+      <label class="col-sm-2 text-center my-auto">Name:</label>
+      <div class="col-sm-10">
+        <%= form.text_field :name, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row my-2">
+      <label class="col-sm-2 text-center my-auto">Description:</label>
+      <div class="col-sm-10">
+          <%= form.text_field :desc, :class => 'form-control'  %>
+      </div>
+    </div>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+    <div class="form-group row my-2">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+          <%= form.file_field :images, multiple: true, :class => 'form-control-file' %>
+      </div>
+    </div>
+    <div class="actions my-5 text-center">
+      <%= form.submit 'Save', :class => 'btn btn-primary' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  </form>
 
-  <div class="field">
-    <%= form.label :desc %>
-    <%= form.text_field :desc %>
-  </div>
-
-  <%= form.hidden_field :user_id, :value => current_user.id %>
-
-  <%= form.file_field :images, multiple: true %>
-
-  <div class="actions">
-    <%= form.submit 'Save' %>
-  </div>
 <% end %>
