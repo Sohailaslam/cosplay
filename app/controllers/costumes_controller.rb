@@ -1,7 +1,7 @@
 class CostumesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_costume, only: [:show, :edit, :update, :destroy, :add_more_images]
-  load_and_authorize_resource :except => :add_more_images
+  before_action :set_costume, only: [:show, :edit, :update, :destroy, :add_more_images, :update_costume_images]
+  load_and_authorize_resource :except => [:add_more_images, :update_costume_images]
 
   # GET /costumes
   # GET /costumes.json
@@ -66,12 +66,19 @@ class CostumesController < ApplicationController
   # Custom actions
 
   # GET /add_images/:id
-  # Adding more images to an existing costume
+  # GET modal form to add more images to an existing costume
   def add_more_images
     respond_to do |f|
       f.html {}
       f.js {}
     end
+  end
+
+  # PATCH /update_costume_images
+  # It updates and add more images to costume object
+  def update_costume_images
+    @costume.update(costume_params)
+    redirect_to(@costume, :notice => 'Image(s) added successfully.')
   end
 
   private

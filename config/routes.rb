@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :costumes
 
   match '/add_images/:id', :to => 'costumes#add_more_images', :via => :get, :as => :add_more_images
+  patch '/update_costume_images/:id', :to => 'costumes#update_costume_images', :as => :update_costume_images
 end
