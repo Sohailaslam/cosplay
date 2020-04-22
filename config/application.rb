@@ -24,6 +24,10 @@ module Cosplay
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    # Under Rails 6, the default behavior for has_many_attached was changed from Rails 5.
+    # Previously, files were appended to the attachment list instead of being overridden.
+    config.active_storage.replace_on_assign_to_many = false
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
