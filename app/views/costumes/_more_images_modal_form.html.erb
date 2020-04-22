@@ -12,7 +12,7 @@
       <%= form_for(costume, url: update_costume_images_path(costume), :method => :patch) do |f| %>
         <div class="form-group">
           <label for="exampleFormControlFile1">Add Image</label>
-          <%= f.file_field :images, multiple: true, :class => 'form-control-file' %>
+          <%= f.file_field :images, multiple: true, :class => 'form-control-file', required: true %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

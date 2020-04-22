@@ -11,46 +11,12 @@
   <div class="row mt-4">
     <% @costumes.each do |costume| %>
     <div class="col-md-4 my-2">
-      <a href="" class="">
         <div class="card shadow my-3" style=" height: 100px">
           <div class="card-body zoom">
-            <h4 class="card-title text-center my-auto"><%= costume.name %></h4>
+            <h4 class="card-title text-center my-auto"><%= link_to(costume.name, costume, :class => '') %></h4>
           </div>
         </div>
-      </a>
     </div>
     <% end %>
   </div>
-
-
 </div>
-
-
-<!--
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Desc</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-      <% @costumes.each do |costume| %>
-      <tr>
-        <td><%#= costume.name %></td>
-        <td><%#= costume.desc %></td>
-        <td><%#= costume.user.email %></td>
-
-        <td><%#= link_to 'Show', costume %></td>
-        <% if can? :modify, costume %>
-          <td><%#= link_to 'Edit', edit_costume_path(costume) %></td>
-          <td><%#= link_to 'Destroy', costume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
