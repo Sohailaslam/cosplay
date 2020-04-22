@@ -1,27 +1,90 @@
-<p>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-10 col-6">
+      <h4 class="text-center text-dark"><%= @costume.name %></h4>
+    </div>
+    <div class="col-md-2 col-6 text-right">
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+        Add New Image
+      </button>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+      <div class="col-md-6">
+        <h4><strong>Description: </strong> <span class="h5"><%= @costume.desc %></span></h4>
+      </div>
+  </div>
+
+  <h4><strong>Images:</strong></h4>
+  <div class="row mt-5">
+      <% if @costume.images.attached? %>
+        <% @costume.images.each do |image| %>
+        <div class="col-md-4 mt-3">
+            <%= image_tag(image, :class => 'img-fluid h-auto' )  %>
+            <h6 class="text-center mt-1">1 September 2020</h6>
+        </div>
+          <% end %>
+      <% end %>
+  </div>
+  <div class="row text-center">
+    <div class="col-12">
+
+      <%= link_to 'Edit', edit_costume_path(@costume, :class => 'btn btn-primary btn-sm text-light') if can? :update, @costume %> |
+      <%= link_to 'Back', costumes_path, :class => 'btn btn-info btn-sm text-light' %>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- <p>
   <strong>Name:</strong>
-  <%= @costume.name %>
+  <%#= @costume.name %>
 </p>
 
 <p>
   <strong>Desc:</strong>
-  <%= @costume.desc %>
+  <%#= @costume.desc %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @costume.user.email %>
-</p>
+  <%#= @costume.user.email %>
+</p> -->
 
-<% if @costume.images.attached? %>
-  <p>
-    <strong>Images:</strong>
-    <br/>
-    <% @costume.images.each do |image| %>
-      <%= image_tag(image) %>
-    <% end %>
-  </p>
-<% end %>
 
-<%= link_to 'Edit', edit_costume_path(@costume) if can? :update, @costume %> |
-<%= link_to 'Back', costumes_path %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="form-group">
+          <label for="exampleFormControlFile1">Add Image</label>
+          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

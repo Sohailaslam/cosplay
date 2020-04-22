@@ -19,3 +19,4 @@ require("channels")
 $(document).ready(function() {
   $('.alert').delay(1500).fadeOut();
 });
+import "bootstrap"

@@ -4,7 +4,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="card mt-5">
+  <div class="card my-3">
     <div class="card-header h5 text-center">
       Sign Up
     </div>
@@ -27,8 +27,8 @@
         </div>
 
         <%= f.submit "Sign Up", :class => 'btn btn-primary mt-4 btn-block mb-3' %>
-        <p class="text-center">OR</p>
-        <%= render "users/shared/links" %>
+        <!-- <p class="text-center">OR</p>
+        <%#= render "users/shared/links" %> -->
       </form>
     </div>
   </div>

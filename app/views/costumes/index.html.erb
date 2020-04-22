@@ -1,4 +1,16 @@
-<h1>Cosplays</h1>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-10">
+      <h4 class="text-center text-dark">Cosplays</h4>
+    </div>
+    <div class="col-2 text-right">
+      <%= link_to 'New Cosplay', new_costume_path, :class => 'btn btn-primary btn-sm text-light' %>
+    </div>
+  </div>
+
+</div>
+
+
 
 <table>
   <thead>
@@ -11,20 +23,25 @@
   </thead>
 
   <tbody>
-    <% @costumes.each do |costume| %>
+    <div class="row mt-4">
+      <% @costumes.each do |costume| %>
+      <div class="col-md-4">
+        <a href="" class="">
+          <div class="card " style=" height: 100px">
+            <div class="card-body zoom">
+              <h4 class="card-title text-center my-auto"><%= costume.name %></h4>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
       <tr>
         <td><%= costume.name %></td>
         <td><%= costume.desc %></td>
         <td><%= costume.user.email %></td>
-        <% if costume.images.attached? %>
-          <p>
-            <strong>Images:</strong>
-            <br/>
-            <% costume.images.each do |image| %>
-              <%= image_tag(image) %>
-            <% end %>
-          </p>
-        <% end %>
+
         <td><%= link_to 'Show', costume %></td>
         <% if can? :modify, costume %>
           <td><%= link_to 'Edit', edit_costume_path(costume) %></td>
@@ -34,8 +51,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Cosplay', new_costume_path %>
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) if user_signed_in? %>
