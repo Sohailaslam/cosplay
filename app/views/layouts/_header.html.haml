@@ -1,9 +1,7 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-dark
   %a.navbar-brand.text-light{:href => "#"} Cosplay
-  %button.navbar-toggler{"aria-controls" => "navbarNavDropdown", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavDropdown", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
-  #navbarNavDropdown.collapse.navbar-collapse
-    %ul.navbar-nav.ml-auto
+  #navbarNavDropdown
+    %ul.navbar-nav
       - if user_signed_in?
         %li.nav-item
           = link_to('My Cosplays', costumes_path, :class => 'nav-link text-light')
