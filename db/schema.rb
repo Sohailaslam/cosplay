@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_122450) do
 
   create_table "costumes", force: :cascade do |t|
     t.string "name"
-    t.text "desc"
+    t.string "desc"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

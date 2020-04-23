@@ -26,6 +26,9 @@
         </div>
 
         <%= f.submit "Sign Up", :class => 'btn btn-primary mt-4 btn-block mb-3' %>
+        <hr>
+        <p>Already had an account? <%= link_to "Log in", new_session_path(resource_name), :class => 'text-primary' %>  instead.</p>
+
         <!-- <p class="text-center">OR</p>
         <%#= render "users/shared/links" %> -->
     </div>

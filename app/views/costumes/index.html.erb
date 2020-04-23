@@ -1,9 +1,9 @@
 <div class="container bg-white border my-5">
   <div class="row mt-4">
-    <div class="col-10">
+    <div class="col-md-10 col-6">
       <h4 class="text-center text-dark">Cosplays</h4>
     </div>
-    <div class="col-2 text-right">
+    <div class="col-md-2 col-6 text-right">
       <%= link_to 'New Cosplay', new_costume_path, :class => 'btn btn-primary btn-sm text-light' %>
     </div>
   </div>
@@ -14,7 +14,7 @@
       <a href="<%= costume_path(costume) %>" class="">
         <div class="card shadow my-3" style=" height: 100px">
           <div class="card-body zoom">
-            <h4 class="card-title text-center my-auto"><%= costume.name %></h4>
+            <h4 class="card-title text-center costume-align"><%= costume.name %></h4>
           </div>
         </div>
       </a>
