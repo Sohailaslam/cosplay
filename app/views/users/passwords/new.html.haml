@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-md-4.mx-auto
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .card.mt-5
+          .card-header.h5.text-center
+            Forgot your password?
+          .card-body
+            %form
+              .form-group
+                %label Email:
+                = f.email_field :email, :class => 'form-control', autofocus: true, autocomplete: "email"
+              = f.submit "Reset my Password", :class => 'btn btn-primary mt-4 btn-block mb-3'
+              %p.text-center OR
+              .text-center
+                = render "users/shared/links"

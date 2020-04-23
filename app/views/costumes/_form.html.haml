@@ -1,0 +1,25 @@
+= form_with(model: costume, local: true) do |form|
+  - if costume.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(costume.errors.count, "error")
+        prohibited this costume from being saved:
+      %ul
+        - costume.errors.full_messages.each do |message|
+          %li= message
+  .form-group.row.my-2
+    %label.col-sm-2.text-center.my-auto Name:
+    .col-sm-10
+      = form.text_field :name, :class => 'form-control', required: true
+  .form-group.row.my-2
+    %label.col-sm-2.text-center.my-auto Description:
+    .col-sm-10
+      = form.text_area :desc, {:class => 'form-control', :cols => '30', :rows => '5' }
+  = form.hidden_field :user_id, :value => current_user.id
+  .form-group.row.my-2
+    %label.col-sm-2.col-form-label Add Images to this Cosplay
+    .col-sm-10
+      = form.file_field :images, multiple: true, :class => 'form-control-file'
+  .actions.my-5.text-center
+    = form.submit 'Save', :class => 'btn btn-primary'
+    = link_to 'Back', costumes_path, class: 'btn btn-primary text-light'

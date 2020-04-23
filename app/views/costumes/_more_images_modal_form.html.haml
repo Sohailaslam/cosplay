@@ -1,0 +1,16 @@
+/ Modal
+#imageUploadModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title Add New Image
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        = form_for(costume, url: update_costume_images_path(costume), :method => :patch) do |f|
+          .form-group
+            %label{:for => "exampleFormControlFile1"} Add Image
+            = f.file_field :images, multiple: true, :class => 'form-control-file', required: true
+          .modal-footer
+            %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+            = f.submit 'Update', :class => 'btn btn-primary'

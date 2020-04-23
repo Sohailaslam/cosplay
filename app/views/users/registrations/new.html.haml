@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-md-4.mx-auto
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .card.my-3
+          .card-header.h5.text-center
+            Sign Up
+          .card-body
+            .form-group
+              %label Email address
+              = f.email_field :email, autofocus: true, :class => 'form-control' , autocomplete: "email"
+            .form-group
+              %label Password
+              - if @minimum_password_length
+                %em
+                  (#{@minimum_password_length} characters minimum)
+              = f.password_field :password, :class => 'form-control', autocomplete: "new-password"
+            .form-group
+              %label Password Confirmation
+              = f.password_field :password_confirmation, :class => 'form-control', autocomplete: "new-password"
+            = f.submit "Sign Up", :class => 'btn btn-primary mt-4 btn-block mb-3'
+            %hr/
+            %p
+              Already had an account? #{link_to "Log in", new_session_path(resource_name), :class => 'text-primary'}  instead.
+            /
+              <p class="text-center">OR</p>
+              <haml_silent></haml_silent>

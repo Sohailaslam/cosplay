@@ -1,0 +1,22 @@
+.container.bg-white.border.my-5
+  .row.mt-4
+    .col-md-8.col-12
+      %h3.text-center.text-dark.text-uppercase
+        %strong= @costume.name
+    .col-md-4.col-12.text-right
+      = link_to 'Add More Images', add_more_images_path(@costume),{ :class => 'btn btn-primary btn-sm text-light', :remote => true } if can? :add_more_images, @costume
+      - if can? :update, @costume
+        = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_costume_path(@costume) , :class => 'text-primary ' , :title => "Edit"
+        |
+        \#{link_to '<i class="fas fa-trash-alt text-danger"></i>'.html_safe, @costume, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn', :title => "Delete"}
+  .row.mt-5
+    .col-md-6
+      %span.h5= @costume.desc
+  .row.mt-5
+    - if @costume.images.attached?
+      - @costume.images.order('created_at DESC').each do |image|
+        .col-md-4.mt-3
+          = image_tag(image, :class => 'img-fluid h-auto' )
+          %h6.text-center.mt-1= image.created_at.strftime('%B %-d, %Y at %I:%M %p')
+/ Modal for adding images
+#imageUploader

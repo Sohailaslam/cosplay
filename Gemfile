@@ -50,3 +50,4 @@ gem 'figaro'
 gem 'cancancan'
 gem  'aws-sdk-s3'
 gem 'friendly_id', '~> 5.2.4'
+gem "haml-rails", "~> 2.0"

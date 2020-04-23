@@ -1,0 +1,13 @@
+.container.bg-white.border.my-5
+  .row.mt-4
+    .col-md-10.col-6
+      %h4.text-center.text-dark Cosplays
+    .col-md-2.col-6.text-right
+      = link_to 'New Cosplay', new_costume_path, :class => 'btn btn-primary btn-sm text-light'
+  .row.mt-4
+    - @costumes.each do |costume|
+      .col-md-4.my-2
+        %a{:href => "#{costume_path(costume)}"}
+          .card.shadow.my-3{:style => " height: 100px"}
+            .card-body.zoom
+              %h4.card-title.text-center.costume-align= costume.name
