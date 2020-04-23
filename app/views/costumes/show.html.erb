@@ -1,10 +1,15 @@
 <div class="container  bg-white border my-5">
   <div class="row mt-4">
-    <div class="col-md-10 col-6">
+    <div class="col-md-8 col-12">
       <h3 class="text-center text-dark text-uppercase"><strong><%= @costume.name %></strong></h3>
     </div>
-    <div class="col-md-2 col-6 text-right">
-      <%= link_to 'Add More Images', add_more_images_path(@costume),{ :class => 'btn btn-primary btn-sm text-light', :remote => true } if can? :add_more_images, @costume %>
+    <div class="col-md-4 col-12 text-right">
+      <%= link_to 'Add More Images', add_more_images_path(@costume),{ :class => 'btn btn-primary btn-sm text-light', :remote => true } if can? :add_more_images, @costume %> |
+      <% if can? :update, @costume %>
+      <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_costume_path(@costume) , :class => 'text-primary ' , :title => "Edit"%> |
+      <% end %>
+      <%#= link_to 'Destroy', costume, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to '<i class="fas fa-trash-alt text-danger"></i>'.html_safe, @costume, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn', :title => "Delete" %>
     </div>
   </div>
 
@@ -24,14 +29,14 @@
           <% end %>
       <% end %>
   </div>
-  <div class="row text-center my-4">
+  <!-- <div class="row text-center my-4">
     <div class="col-12">
       <% if can? :update, @costume %>
-        <%= link_to 'Edit', edit_costume_path(@costume), {:class => 'btn btn-primary btn-sm text-light'} %> | 
+        <%#= link_to 'Edit', edit_costume_path(@costume), {:class => 'btn btn-primary btn-sm text-light'} %> |
       <% end %>
-      <%= link_to 'Back', costumes_path, :class => 'btn btn-info btn-sm text-light' %>
+      <%#= link_to 'Back', costumes_path, :class => 'btn btn-info btn-sm text-light' %>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <!-- Modal for adding images -->

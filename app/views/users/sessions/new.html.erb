@@ -25,7 +25,11 @@
           </form>
           <%= f.submit "Log in", :class => 'btn btn-primary mt-4 btn-block mb-3' %>
           <hr>
-            <%= render "users/shared/links" %>
+          <div class="text-center my-3">
+            <%= link_to "Forgot password?", new_password_path(resource_name), :class => 'text-primary' %>
+          </div>
+          <p>New to Cosplay? <%= link_to "Sign up", new_registration_path(resource_name), :class => 'text-primary mt-3'  %>  instead.</p>
+            <%#= render "users/shared/links" %>
         </div>
       </div>
           <% end %>
