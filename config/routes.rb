@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: 'home#index'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
+
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'costumes#index', :as => :authenticated_root
+    end
+
+    unauthenticated :user do
+      root :to => 'users/sessions#new', :as => :unauthenticated_root
+    end
+  end
 
   resources :costumes
 
