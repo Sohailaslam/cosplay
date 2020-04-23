@@ -4,13 +4,13 @@
       <h3 class="text-center text-dark text-uppercase"><strong><%= @costume.name %></strong></h3>
     </div>
     <div class="col-md-2 col-6 text-right">
-      <%= link_to 'Add More Images', add_more_images_path(@costume),{ :class => 'btn btn-primary btn-sm text-light', :remote => true } %>
+      <%= link_to 'Add More Images', add_more_images_path(@costume),{ :class => 'btn btn-primary btn-sm text-light', :remote => true } if can? :add_more_images, @costume %>
     </div>
   </div>
 
   <div class="row mt-5">
       <div class="col-md-6">
-        <h4><strong>Description: </strong> <span class="h5"><%= @costume.desc.truncate(70) %></span></h4>
+        <span class="h5"><%= @costume.desc %></span>
       </div>
   </div>
 
@@ -26,7 +26,9 @@
   </div>
   <div class="row text-center my-4">
     <div class="col-12">
-      <%= link_to 'Edit', edit_costume_path(@costume), {:class => 'btn btn-primary btn-sm text-light'} if can? :update, @costume %> |
+      <% if can? :update, @costume %>
+        <%= link_to 'Edit', edit_costume_path(@costume), {:class => 'btn btn-primary btn-sm text-light'} %> | 
+      <% end %>
       <%= link_to 'Back', costumes_path, :class => 'btn btn-info btn-sm text-light' %>
     </div>
   </div>
