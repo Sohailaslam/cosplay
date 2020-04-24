@@ -1,0 +1,51 @@
+body,
+ p,
+ span,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ div,
+ button,
+ input,
+ li,
+ ul,
+ ol,
+ table,
+ td,
+ tr,
+ th,
+ fieldset,
+ font,
+ strong,
+ .btn,
+ b {
+   font-family: 'Rubik', sans-serif !important;
+ }
+
+ body{
+  margin: 0px;
+  background: #EFF6FF !important;
+ }
+ .container-main {
+   background: #EFF6FF !important;
+   min-height: calc(100vh);
+ }
+
+
+ .zoom {
+
+  transition: transform .2s; /* Animation */
+  color: black;
+  font-size: 14px;
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.costume-align{
+  padding: 15px;
+}
