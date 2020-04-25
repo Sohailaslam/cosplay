@@ -26,7 +26,7 @@ class CostumesController < ApplicationController
   # POST /costumes
   # POST /costumes.json
   def create
-    @costume = Costume.new(costume_params)
+    @costume = current_user.costumes.new(costume_params)
 
     respond_to do |format|
       if @costume.save!
@@ -89,6 +89,6 @@ class CostumesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def costume_params
-      params.require(:costume).permit(:name, :desc, :user_id, images: [])
+      params.require(:costume).permit(:name, :desc, images: [])
     end
 end

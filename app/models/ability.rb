@@ -7,7 +7,7 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     user ||= User.new # guest user (not logged in)
-    alias_action :create, :update, :destroy, :to => :modify
+    alias_action :update, :destroy, :to => :modify
     alias_action :add_more_images, :update_costume_images, :to => :add_images_and_update
     #   if user.admin?
     #     can :manage, :all
@@ -16,6 +16,7 @@ class Ability
     #   end
     if user.present?
       can :read, Costume
+      can :create, Costume
       can :modify, Costume, user_id: user.id
       can :add_images_and_update, Costume, user_id: user.id
     end
